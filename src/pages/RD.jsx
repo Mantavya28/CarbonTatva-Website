@@ -8,7 +8,7 @@ const RD = () => {
         
         {/* Intro Section */}
         <section className="rd-intro">
-          <h1 className="hero-title" style={{ marginBottom: '1.5rem' }}>Research & <span>Development</span></h1>
+          <h1 className="hero-title offering-title" style={{ marginBottom: '1.5rem' }}>Research & <span>Development</span></h1>
           <p className="hero-subtitle" style={{ margin: '0 auto', color: 'var(--text-main)', fontSize: '1.15rem', lineHeight: '1.8' }}>
             Our work at CarbonTatva.AI is grounded in rigorous research at the intersection of climate, energy, and AI. As founders, we have actively contributed to advancing methodologies in energy demand forecasting and climate impact analysis. This research underpins our product capabilities, enabling us to build accurate, scalable, and regulation-ready solutions for real-world emissions measurement, forecasting, and decision-making.
           </p>
@@ -49,7 +49,7 @@ const RD = () => {
               We are always looking to collaborate with academic institutions, research labs, and industry partners working at the intersection of AI and climate. Whether it is joint research, pilot projects, data partnerships, or grant initiatives, we aim to build solutions that drive real-world impact.
             </p>
             <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.1rem' }}>
-              Reach out to us at <a href="mailto:support@carbontatva.co.in" className="collab-email">support@carbontatva.co.in</a> or fill out the following form to explore collaboration opportunities.
+              Reach out to us at <a href="mailto:support@carbontatva.co.in" className="collab-email">support@carbontatva.com</a> or fill out the following form to explore collaboration opportunities.
             </p>
           </div>
           
