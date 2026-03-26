@@ -31,18 +31,25 @@ const Offerings = () => {
   ];
 
   return (
-    <main className="animate-fade-in" style={{ background: 'var(--bg-secondary)', paddingBottom: '6rem' }}>
-      <div className="container" style={{ paddingTop: '4rem' }}>
-        <h1 className="hero-title" style={{ textAlign: 'center', marginBottom: '4rem' }}>
+    <main
+      className="animate-fade-in"
+      style={{ background: "var(--bg-secondary)", paddingBottom: "6rem" }}
+    >
+      <div className="container" style={{ paddingTop: "4rem" }}>
+        <h1
+          className="hero-title offering-title"
+          style={{ textAlign: "center", marginBottom: "4rem" }}
+        >
           Our <span>Offerings</span>
         </h1>
-        
+
         <div className="offerings-list">
           {offerings.map((offering, idx) => (
-            <div key={idx} className={`offering-card ${idx % 2 !== 0 ? 'reverse' : ''}`}>
-              <div className="offering-icon-wrapper">
-                {offering.icon}
-              </div>
+            <div
+              key={idx}
+              className={`offering-card ${idx % 2 !== 0 ? "reverse" : ""}`}
+            >
+              <div className="offering-icon-wrapper">{offering.icon}</div>
               <div className="offering-content">
                 <h2 className="offering-title">{offering.title}</h2>
                 <p className="offering-desc">{offering.description}</p>
@@ -51,6 +58,106 @@ const Offerings = () => {
           ))}
         </div>
       </div>
+      {/* Book Demo Section */}
+      <section id="demo" className="demo-section">
+        <div className="demo-container">
+          {/* LEFT CONTENT */}
+          <div className="demo-left">
+            <h2 className="demo-title">
+              Request a <span>demo</span>
+            </h2>
+
+            <p className="demo-desc">
+              Discover how CarbonTatva AI helps you measure, monitor, and
+              forecast emissions with precision. Our platform integrates
+              seamlessly with your systems to deliver actionable climate
+              insights.
+            </p>
+
+            <p className="demo-desc">
+              From <strong>tatva.ingest</strong> to{" "}
+              <strong>tatva.recommend</strong>, we provide end-to-end
+              intelligence to ensure compliance, optimise costs, and accelerate
+              your journey to net-zero.
+            </p>
+
+            <p className="demo-contact">
+              Or reach us at <span>support@carbontatva.com</span>
+            </p>
+          </div>
+
+          {/* RIGHT FORM */}
+          <form className="demo-form">
+            <div className="form-row">
+              <div className="form-group">
+                <label className="form-label">First Name</label>
+                <input
+                  name="firstName"
+                  type="text"
+                  required
+                  className="form-input"
+                />
+              </div>
+
+              <div className="form-group">
+                <label className="form-label">Last Name</label>
+                <input
+                  name="lastName"
+                  type="text"
+                  required
+                  className="form-input"
+                />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label className="form-label">Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  className="form-input"
+                />
+              </div>
+
+              <div className="form-group">
+                <label className="form-label">Contact No.</label>
+                <input name="phone" type="tel" className="form-input" />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Organization Name</label>
+              <input name="company" type="text" className="form-input" />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Interested In</label>
+              <select name="interest" className="form-input">
+                <option>tatva.ingest</option>
+                <option>tatva.measure</option>
+                <option>tatva.forecast</option>
+                <option>tatva.gridprice</option>
+                <option>tatva.recommend</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Message</label>
+              <textarea
+                name="message"
+                className="form-textarea"
+                placeholder="Tell us about your requirements..."
+              />
+            </div>
+
+            <button type="submit" className="btn btn-primary demo-btn">
+              Request Demo →
+            </button>
+          </form>
+        </div>
+      </section>
     </main>
   );
 };
