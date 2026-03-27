@@ -40,7 +40,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="nav-actions">
-            <Link to="/offerings#demo" className="btn btn-primary">
+            <Link to="/demo" className="btn btn-primary">
               <LogIn size={18} style={{ marginRight: "8px" }} />
               Book a Demo
             </Link>

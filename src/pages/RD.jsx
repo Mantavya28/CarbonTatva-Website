@@ -5,10 +5,10 @@ const RD = () => {
   return (
     <main className="animate-fade-in" style={{ background: 'var(--bg-secondary)', paddingBottom: '6rem' }}>
       <div className="container" style={{ paddingTop: '4rem' }}>
-        
+
         {/* Intro Section */}
         <section className="rd-intro">
-          <h1 className="hero-title offering-title" style={{ marginBottom: '1.5rem' }}>Research & <span>Development</span></h1>
+          <h1 className="hero-title offering-title" style={{ marginBottom: '1.5rem', textAlign: 'center', margin: '0 auto 1.5rem' }}>Research & <span>Development</span></h1>
           <p className="hero-subtitle" style={{ margin: '0 auto', color: 'var(--text-main)', fontSize: '1.15rem', lineHeight: '1.8' }}>
             Our work at CarbonTatva.AI is grounded in rigorous research at the intersection of climate, energy, and AI. As founders, we have actively contributed to advancing methodologies in energy demand forecasting and climate impact analysis. This research underpins our product capabilities, enabling us to build accurate, scalable, and regulation-ready solutions for real-world emissions measurement, forecasting, and decision-making.
           </p>
@@ -39,6 +39,18 @@ const RD = () => {
               Read Paper <ExternalLink size={18} style={{ marginLeft: '8px' }} />
             </a>
           </div>
+
+          {/* Paper 3 */}
+          <div className="paper-card">
+            <h2 className="paper-title">A Smartphone-Based Hybrid Model for Real-Time Monitoring of Aggressive Driving Behavior</h2>
+            <div className="paper-authors">By Mantavya Upadhyay et al.</div>
+            <p className="paper-summary">
+              This study develops a hybrid system that uses smartphone sensor data to detect and regulate aggressive driving in real-time. By integrating Multidimensional Dynamic Time Warping (DTW) with machine learning, the research captures both temporal alignment patterns and distributional driving characteristics, achieving 96% accuracy. Much like the energy transition modeling in the other studies, these findings provide a foundation for understanding behavioral shifts, directly informing how we build automated feedback systems to monitor safety and regulate human-driven and autonomous systems.
+            </p>
+            <a href="https://ieeexplore.ieee.org/document/11139729" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              Read Paper <ExternalLink size={18} style={{ marginLeft: '8px' }} />
+            </a>
+          </div>
         </section>
 
         {/* Collaboration Section */}
@@ -46,48 +58,51 @@ const RD = () => {
           <div className="collab-content">
             <h2 style={{ fontSize: '2.5rem', color: 'var(--text-main)', marginBottom: '1.5rem', fontWeight: '800' }}>Request for <span>collaboration</span></h2>
             <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '1.5rem' }}>
-              We are always looking to collaborate with academic institutions, research labs, and industry partners working at the intersection of AI and climate. Whether it is joint research, pilot projects, data partnerships, or grant initiatives, we aim to build solutions that drive real-world impact.
+              We are always looking to collaborate with academic institutions, research labs, and industry partners working at the intersection of AI and climate.
+            </p>
+            <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '1.5rem' }}>
+              Whether it is joint research, pilot projects, data partnerships, or grant initiatives, we aim to build solutions that drive real-world impact.
             </p>
             <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.1rem' }}>
               Reach out to us at <a href="mailto:support@carbontatva.co.in" className="collab-email">support@carbontatva.com</a> or fill out the following form to explore collaboration opportunities.
             </p>
           </div>
-          
+
           <div className="collab-form-container">
             <form onSubmit={(e) => { e.preventDefault(); alert('Form submitted successfully!'); }}>
-              <div className="form-row">
-                <div className="form-group">
-                  <label className="form-label">First Name</label>
-                  <input type="text" className="form-input" placeholder="John" required />
+              <div style={{ display: 'flex', gap: '1.5rem' }}>
+                <div style={{ flex: 1 }}>
+                  <label className="form-label" style={{ fontSize: '0.9rem', marginBottom: '0.25rem' }}>First Name</label>
+                  <input type="text" className="form-input" style={{ padding: '0.6rem 1rem' }} placeholder="John" required />
                 </div>
-                <div className="form-group">
-                  <label className="form-label">Last Name</label>
-                  <input type="text" className="form-input" placeholder="Doe" required />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label className="form-label">Email</label>
-                  <input type="email" className="form-input" placeholder="john@example.com" required />
-                </div>
-                <div className="form-group">
-                  <label className="form-label">Contact No.</label>
-                  <input type="tel" className="form-input" placeholder="+91 98765 43210" required />
+                <div style={{ flex: 1 }}>
+                  <label className="form-label" style={{ fontSize: '0.9rem', marginBottom: '0.25rem' }}>Last Name</label>
+                  <input type="text" className="form-input" style={{ padding: '0.6rem 1rem' }} placeholder="Doe" required />
                 </div>
               </div>
 
-              <div className="form-group">
-                <label className="form-label">Organization Name</label>
-                <input type="text" className="form-input" placeholder="University or Company" required />
+              <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1.5rem' }}>
+                <div style={{ flex: 1 }}>
+                  <label className="form-label" style={{ fontSize: '0.9rem', marginBottom: '0.25rem' }}>Email</label>
+                  <input type="email" className="form-input" style={{ padding: '0.6rem 1rem' }} placeholder="john@example.com" required />
+                </div>
+                <div style={{ flex: 1 }}>
+                  <label className="form-label" style={{ fontSize: '0.9rem', marginBottom: '0.25rem' }}>Contact No.</label>
+                  <input type="tel" className="form-input" style={{ padding: '0.6rem 1rem' }} placeholder="+91 98765 43210" required />
+                </div>
               </div>
 
-              <div className="form-group">
-                <label className="form-label">Message</label>
-                <textarea className="form-textarea" placeholder="How would you like to collaborate?" required></textarea>
+              <div style={{ marginTop: '1.5rem' }}>
+                <label className="form-label" style={{ fontSize: '0.9rem', marginBottom: '0.25rem' }}>Organization Name</label>
+                <input type="text" className="form-input" style={{ padding: '0.6rem 1rem' }} placeholder="University or Company" required />
               </div>
 
-              <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '1rem', fontSize: '1.1rem', marginTop: '0.5rem' }}>
+              <div style={{ marginTop: '1.5rem' }}>
+                <label className="form-label" style={{ fontSize: '0.9rem', marginBottom: '0.25rem' }}>Message</label>
+                <textarea className="form-textarea" style={{ minHeight: '80px', padding: '0.6rem 1rem' }} placeholder="How would you like to collaborate?" required></textarea>
+              </div>
+
+              <button type="submit" className="btn btn-primary" style={{ padding: '0.875rem', fontSize: '1.1rem', width: '100%', maxWidth: '300px', marginTop: '1.5rem' }}>
                 Submit Request <Send size={18} style={{ marginLeft: '8px' }} />
               </button>
             </form>

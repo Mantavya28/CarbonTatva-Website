@@ -64,23 +64,9 @@ const Home = () => {
                 flexWrap: "wrap",
               }}
             >
-              <Link to="/offerings#demo" className="btn btn-primary">
-                <LogIn size={18} style={{ marginRight: "8px" }} />
-                Book a Demo
-              </Link>
-              <Link
-                to="/offerings"
-                className="btn"
-                style={{
-                  backgroundColor: "white",
-                  color: "var(--text-main)",
-                  border: "1px solid var(--border-light)",
-                  padding: "0.875rem 2.5rem",
-                  fontSize: "1.125rem",
-                  boxShadow: "var(--shadow-sm)",
-                }}
-              >
-                Explore platform
+              <Link to="/demo" className="btn btn-primary" style={{ padding: "1rem 3rem", fontSize: "1.25rem" }}>
+                <LogIn size={20} style={{ marginRight: "10px" }} />
+                Book a demo
               </Link>
             </div>
           </div>
@@ -122,26 +108,25 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. Problem Section */}
+      {/* 2. Problem & Solution Section */}
       <section
         className="problems-section"
-        style={{ background: "var(--bg-secondary)", padding: "6rem 0" }}
+        style={{ background: "var(--bg-secondary)", padding: "6rem 0 8rem" }}
       >
-        <div className="container">
-          <h2
-            className="hero-title"
-            style={{
-              fontSize: "2.5rem",
-              textAlign: "center",
-              maxWidth: "900px",
-              margin: "0 auto 4rem",
-            }}
-          >
-            Carbon management is still too <span>manual</span>, too{" "}
-            <span>fragmented</span>, and too <span>complex</span>
-          </h2>
+        <div className="container" style={{ position: "relative" }}>
+          
+          {/* Section Header */}
+          <div style={{ textAlign: "center", maxWidth: "900px", margin: "0 auto 4rem" }}>
+            <h2 className="hero-title" style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }}>
+              Carbon management is still too <span>manual</span>, too{" "}
+              <span>fragmented</span>, and too <span>complex</span>
+            </h2>
+            <p className="hero-subtitle" style={{ fontSize: '1.25rem', color: 'var(--text-muted)' }}>
+              But it doesn't have to be. CarbonTatva AI transforms overwhelming operational data directly into actionable climate intelligence.
+            </p>
+          </div>
 
-          <div className="problems-grid">
+          <div className="problems-grid" style={{ marginBottom: "5rem" }}>
             {/* Pain point 1 */}
             <div className="problem-card">
               <div className="problem-icon">
@@ -186,61 +171,53 @@ const Home = () => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 3. Solution Overview Section */}
-      <section
-        className="solution-section"
-        style={{ padding: "6rem 0", background: "white" }}
-      >
-        <div
-          className="container"
-          style={{ textAlign: "center", maxWidth: "900px" }}
-        >
           <div
-            className="solution-badge"
+            className="solution-block"
             style={{
-              display: "inline-block",
-              padding: "0.5rem 1rem",
-              background: "rgba(16, 185, 129, 0.1)",
-              color: "var(--primary-green-dark)",
-              borderRadius: "9999px",
-              fontWeight: "600",
-              marginBottom: "1.5rem",
+              background: "white",
+              padding: "4rem",
+              borderRadius: "24px",
+              boxShadow: "var(--shadow-md)",
+              border: "1px solid var(--border-light)",
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "1.5rem"
             }}
           >
-            The CarbonTatva Advantage
+            <div
+              style={{
+                display: "inline-block",
+                padding: "0.5rem 1rem",
+                background: "rgba(16, 185, 129, 0.1)",
+                color: "var(--primary-green-dark)",
+                borderRadius: "9999px",
+                fontWeight: "600",
+              }}
+            >
+              The CarbonTatva Advantage
+            </div>
+            <h2 style={{ fontSize: "2rem", fontWeight: "800", color: "var(--text-main)" }}>
+              Transforming operational data into actionable insights
+            </h2>
+            <p style={{ fontSize: "1.15rem", color: "var(--text-muted)", maxWidth: "800px", lineHeight: "1.8" }}>
+              CarbonTatva AI is an AI-native climate intelligence layer that sits
+              on top of your existing systems and turns operational data into
+              actionable insights. It helps businesses automate data integration,
+              accurately calculate emissions, forecast future impacts, and
+              identify reduction opportunities, all while supporting compliance
+              readiness and smarter decision-making.
+            </p>
+            <Link
+              to="/offerings"
+              className="btn btn-primary"
+              style={{ padding: "1rem 3rem", fontSize: "1.15rem", marginTop: "1rem" }}
+            >
+              Explore Features <ArrowRight size={20} style={{ marginLeft: "10px" }} />
+            </Link>
           </div>
-          <h2
-            className="hero-title"
-            style={{ fontSize: "2.5rem", marginBottom: "2rem" }}
-          >
-            Transforming operational data into actionable insights
-          </h2>
-          <p
-            className="hero-subtitle"
-            style={{
-              fontSize: "1.2rem",
-              margin: "0 auto 3rem",
-              color: "var(--text-muted)",
-            }}
-          >
-            CarbonTatva AI is an AI-native climate intelligence layer that sits
-            on top of your existing systems and turns operational data into
-            actionable insights. It helps businesses automate data integration,
-            accurately calculate emissions, forecast future impacts, and
-            identify reduction opportunities, all while supporting compliance
-            readiness and smarter decision-making.
-          </p>
-          <Link
-            to="/offerings"
-            className="btn btn-primary"
-            style={{ padding: "1rem 3rem", fontSize: "1.25rem" }}
-          >
-            View Our Offerings{" "}
-            <ArrowRight size={20} style={{ marginLeft: "10px" }} />
-          </Link>
         </div>
       </section>
     </main>

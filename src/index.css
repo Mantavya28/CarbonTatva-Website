@@ -202,10 +202,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
- .offering-title {
-   padding-left: 12%
-
- }
+/* Manual padding removed for titles */
 
 .hero-title {
   font-size: 3.5rem !important;
@@ -222,11 +219,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-subtitle {
-  text-align: left;
+  text-align: center;
   font-size: 1.25rem;
   color: var(--text-muted);
-  max-width: 600px;
-  margin-bottom: 2.5rem;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
 }
 
 /* About Page Specific Styles */
@@ -341,6 +338,54 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-muted);
   line-height: 1.6;
   font-size: 1.05rem;
+}
+
+/* Single Founder Profile */
+.single-founder-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  background: transparent;
+  padding: 2rem 0;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+@media (min-width: 768px) {
+  .single-founder-container {
+    flex-direction: row;
+    gap: 4rem;
+  }
+}
+
+.single-founder-photo {
+  width: 320px;
+  height: 320px;
+  border-radius: 24px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-md);
+}
+
+.single-founder-info {
+  flex: 1;
+  text-align: left;
+}
+
+.single-founder-name {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.single-founder-bio {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
 }
 
 /* Offerings Page Styles */
@@ -542,12 +587,12 @@ h1, h2, h3, h4, h5, h6 {
 .form-input, .form-textarea {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 1px solid var(--border-light);
+  border: 1px solid #9ca3af;
   border-radius: 12px;
   font-family: inherit;
   font-size: 1rem;
   transition: all 0.2s ease;
-  background: var(--bg-secondary);
+  background: white;
 }
 
 .form-input:focus, .form-textarea:focus {
@@ -560,6 +605,30 @@ h1, h2, h3, h4, h5, h6 {
 .form-textarea {
   min-height: 140px;
   resize: vertical;
+}
+
+/* Demo Specific Components */
+.demo-offering-card {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.demo-offering-card:hover {
+  background: rgba(16, 185, 129, 0.05);
+  border-color: var(--primary-green-light);
+}
+
+.demo-offering-card.expanded {
+  border: 1px solid var(--primary-green);
+  background: white;
 }
 
 /* Home Page Specific Styles */
@@ -700,14 +769,14 @@ h1, h2, h3, h4, h5, h6 {
 .problem-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
-  border-color: #439f55; /* A subtle red warning color on hover for problems */
+  border-color: var(--primary-green);
 }
 
 .problem-icon {
   width: 60px;
   height: 60px;
-  background: rgba(65, 179, 131, 0.1);
-  color: #186537; /* red-500 */
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--primary-green);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -722,8 +791,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .img-nav{
-  width: 20%;
-  height: 20%;
+  height: 32px;
+  width: auto;
+  margin-right: 0.5rem;
+  border-radius: 4px;
 }
 
 .logo-nav{

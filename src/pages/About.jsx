@@ -1,19 +1,56 @@
-import React, { useState } from "react";
+import React from "react";
 import { ArrowRight } from "lucide-react";
 
 const About = () => {
-  const [activeTab, setActiveTab] = useState("developers");
+  const foundersInterns = [
+    { name: 'Tanishq Soni', linkedin: 'https://www.linkedin.com/in/tanishq-soni-946a66293/', photo: '/interns/tanishq.jpeg' },
+    { name: 'Rishika Rathore', linkedin: null, photo: '/interns/rishika.jpeg' },
+    { name: 'Prince Yadav', linkedin: 'https://www.linkedin.com/in/prince-yadav-1403py/', photo: '/interns/prince.jpeg' },
+    { name: 'Rajat', linkedin: 'https://www.linkedin.com/in/rajat-b92183207/', photo: '/interns/rajat.jpeg' },
+    { name: 'Aryan Saini', linkedin: 'https://www.linkedin.com/in/aryan-saini-4b7797288/', photo: '/interns/aryan.jpeg' },
+    { name: 'Sanchit Arora', linkedin: 'https://www.linkedin.com/in/sanchit-arora-49ba27296/', photo: '/interns/sanchit.jpeg' },
+  ];
 
-  const interns = {
-    developers: [
-      { name: "Vibhor Srivastava", img: "/interns/vibhor.jpeg" },
-      { name: "Tanmay", img: "/interns/tanmay.jpeg" },
-    ],
-    founders: [
-      { name: "Jane Smith", img: "/interns/jane.jpg" },
-      { name: "Alex Kumar", img: "/interns/alex.jpg" },
-    ],
-  };
+  const devInterns = [
+    { name: 'Vibhor Srivastava', linkedin: 'https://www.linkedin.com/in/vibhor-srivastava-496b4327b/', photo: '/interns/vibhor.jpeg' },
+    { name: 'Tanmay Prasad', linkedin: 'https://www.linkedin.com/in/tanmayprasad02/', photo: '/interns/tanmay.jpeg' },
+    { name: 'Varun Malviya', linkedin: 'https://www.linkedin.com/in/varun-malviya-6ab47a18a/', photo: null },
+    { name: 'Harsh Gupta', linkedin: 'https://www.linkedin.com/in/varun-malviya-6ab47a18a/', photo: '/interns/harsh.jpeg' },
+    { name: 'Rajat', linkedin: 'https://www.linkedin.com/in/rajat-b92183207/', photo: '/interns/rajat.jpeg' },
+    { name: 'Ankit', linkedin: null, photo: null },
+    { name: 'Kushal Agarwal', linkedin: 'https://www.linkedin.com/in/kushal-agrawal-1b2722298/', photo: '/interns/kushal.jpeg' },
+    { name: 'Anku Kr Singh', linkedin: null, photo: '/interns/anku.jpeg' },
+    { name: 'Yash Pathak', linkedin: 'https://www.linkedin.com/in/yash-pathak-24802128b/', photo: '/interns/yash.jpeg' },
+    { name: 'Shourya', linkedin: null, photo: '/interns/shourya.jpeg' },
+    { name: 'Shreyansh', linkedin: null, photo: '/interns/shreyansh.jpeg' },
+    { name: 'Sanvi Jain', linkedin: 'https://www.linkedin.com/in/sanvi-jain-0a9a2b280/', photo: '/interns/sanvi.jpeg' },
+    { name: 'Vivek', linkedin: 'https://www.linkedin.com/in/vivek-80ba11279/', photo: '/interns/vivek.jpeg' },
+  ];
+
+  const designInterns = [
+    { name: 'Ojasva', linkedin: null, photo: '/interns/ojasva.jpeg' },
+    { name: 'Prity', linkedin: null, photo: null },
+    { name: 'Shefali Maheshwari', linkedin: null, photo: '/interns/shefali.jpeg' }
+  ];
+
+  const renderInterns = (internList) => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2.5rem', marginBottom: '5rem', width: '100%' }}>
+      {internList.map((intern, idx) => (
+        <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '160px' }}>
+          <div style={{ width: '120px', height: '120px', borderRadius: '30px', backgroundColor: 'var(--border-light)', marginBottom: '1.25rem', overflow: 'hidden', boxShadow: 'var(--shadow-sm)' }}>
+            <img src={intern.photo} alt={intern.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: intern.photo ? 'block' : 'none' }} />
+          </div>
+          <h4 style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem', lineHeight: '1.2' }}>{intern.name}</h4>
+          {intern.linkedin && (
+            <a href={intern.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: '#0A66C2', display: 'flex', alignItems: 'center', justifyItems: 'center', opacity: '0.8', transition: 'opacity 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '1'} onMouseLeave={(e) => e.currentTarget.style.opacity = '0.8'}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <main
       className="animate-fade-in"
@@ -66,11 +103,11 @@ const About = () => {
             <button
               className="btn btn-primary"
               style={{
-                marginTop: "0",
+                marginTop: "1.5rem",
                 padding: "0.75rem 2rem",
                 fontSize: "1.125rem",
               }}
-              onClick={() => (window.location.href = "#demo")}
+              onClick={() => (window.location.href = "/demo")}
             >
               Request a demo{" "}
               <ArrowRight size={20} style={{ marginLeft: "8px" }} />
@@ -81,103 +118,55 @@ const About = () => {
           </div>
         </section>
 
-        {/* Founders Section */}
-        <section className="founders-section">
+        {/* Founder Section */}
+        <section className="founders-section" style={{ marginTop: "-2rem" }}>
           <h2
             className="hero-title"
             style={{ fontSize: "3rem", marginBottom: "1rem" }}
           >
-            Our <span>founders</span>
+            Our <span>founder</span>
           </h2>
-          <div className="founders-container">
-            {/* Founder 1 */}
-            <div className="founder-card">
-              <img
-                src="/mantavya.jpg"
-                alt="Mantavya Upadhyay"
-                className="founder-photo"
-              />
-              <div className="founder-info">
-                <h3 className="founder-name">Mantavya Upadhyay</h3>
-                <div className="founder-role">Co-Founder & CEO</div>
-                <p className="founder-bio">
-                  Leading the vision for CarbonTatva AI to become the premier
-                  platform for enterprise climate intelligence and
-                  sustainability compliance.
-                </p>
-              </div>
+          <p className="hero-subtitle" style={{ textAlign: 'center', margin: '0 auto 2rem', fontWeight: '600', color: 'var(--primary-green)' }}>
+            Building AI-driven solutions for real-world sustainability challenges.
+          </p>
+
+          <div className="single-founder-container">
+            <img src="/mantavya.jpg" alt="Mantavya Upadhyay" className="single-founder-photo" />
+            <div className="single-founder-info">
+              <h3 className="single-founder-name" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                Mantavya Upadhyay
+                <a href="https://www.linkedin.com/in/mantavya-upadhyay/" target="_blank" rel="noopener noreferrer" style={{ color: '#0A66C2', display: 'inline-flex', alignItems: 'center' }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                </a>
+              </h3>
+              <p className="single-founder-bio">
+                Mantavya Upadhyay is a climate-tech innovator building AI-native solutions to measure, monitor, and reduce carbon emissions.
+              </p>
+              <p className="single-founder-bio">
+                A B.Tech Electrical Engineering student from IIT Kanpur, his work sits at the intersection of sustainability, energy systems, and machine learning. He has led research on electricity demand forecasting and climate impact modelling, and brings cross-functional experience across product, strategy, and operations through roles at ITC Limited, Noora Health, Zydus Lifesciences and the Andhra Pradesh Government. His work combines deep technical understanding with real-world execution to drive scalable climate action.
+              </p>
             </div>
-
-            {/* Founder 2 (Offset and reverse) */}
-            {/* <div className="founder-card reverse offset">
-              <img
-                src="/nikhil.jpg"
-                alt="Nikhil Kumar"
-                className="founder-photo"
-              />
-              <div className="founder-info" style={{ textAlign: "left" }}>
-                <h3 className="founder-name">Nikhil Kumar</h3>
-                <div className="founder-role">Co-Founder & CTO</div>
-                <p className="founder-bio">
-                  Architecting the proprietary AI models including tatva.ingest
-                  and tatva.measure to deliver pinpoint accurate emissions
-                  tracking.
-                </p>
-              </div>
-            </div> */}
-
-            {/* Founder 3 */}
-            {/* <div className="founder-card">
-              <img
-                src="/suneet.jpg"
-                alt="Suneet Maharana"
-                className="founder-photo"
-              />
-              <div className="founder-info">
-                <h3 className="founder-name">Suneet Maharana</h3>
-                <div className="founder-role">Co-Founder & COO</div>
-                <p className="founder-bio">
-                  Driving operational excellence and guiding our clients through
-                  the evolving regulatory landscape like CBAM and CCTS.
-                </p>
-              </div> */}
-            {/* </div> */}
           </div>
         </section>
+
         {/* Interns Section */}
-        <section className="interns-section">
+        <section className="interns-section" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
           <h2
             className="hero-title"
-            style={{ fontSize: "3rem", marginBottom: "1rem" }}
+            style={{ fontSize: "3rem", marginBottom: "4rem", textAlign: "center", margin: "0 auto 4rem" }}
           >
             Our <span>interns</span>
           </h2>
 
-          {/* Tabs */}
-          <div className="intern-tabs">
-            <button
-              className={activeTab === "developers" ? "tab active" : "tab"}
-              onClick={() => setActiveTab("developers")}
-            >
-              Developers
-            </button>
-            <button
-              className={activeTab === "founders" ? "tab active" : "tab"}
-              onClick={() => setActiveTab("founders")}
-            >
-              Founders Office
-            </button>
-          </div>
+          <h3 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '3rem', color: 'var(--text-main)' }}>Founder's Office Interns</h3>
+          {renderInterns(foundersInterns)}
 
-          {/* Intern Grid */}
-          <div className="interns-grid">
-            {interns[activeTab].map((intern, index) => (
-              <div key={index} className="intern-card">
-                <img src={intern.img} alt={intern.name} />
-                <div className="intern-name">{intern.name}</div>
-              </div>
-            ))}
-          </div>
+          <h3 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '3rem', color: 'var(--text-main)' }}>Developer Interns</h3>
+          {renderInterns(devInterns)}
+
+          <h3 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '3rem', color: 'var(--text-main)' }}>Design Interns</h3>
+          {renderInterns(designInterns)}
+
         </section>
       </div>
     </main>

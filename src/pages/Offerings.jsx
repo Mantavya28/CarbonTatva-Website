@@ -38,7 +38,7 @@ const Offerings = () => {
       <div className="container" style={{ paddingTop: "4rem" }}>
         <h1
           className="hero-title offering-title"
-          style={{ textAlign: "center", marginBottom: "4rem" }}
+          style={{ textAlign: "center", marginBottom: "4rem", margin: "0 auto 4rem" }}
         >
           Our <span>Offerings</span>
         </h1>
@@ -58,104 +58,22 @@ const Offerings = () => {
           ))}
         </div>
       </div>
-      {/* Book Demo Section */}
-      <section id="demo" className="demo-section">
-        <div className="demo-container">
-          {/* LEFT CONTENT */}
-          <div className="demo-left">
-            <h2 className="demo-title">
-              Request a <span>demo</span>
+      {/* Ready to start Section */}
+      <section className="ready-section" style={{ padding: '6rem 0', background: 'transparent' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
+          <div style={{ flex: '1', minWidth: '300px' }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1rem', color: 'var(--text-main)', textAlign: 'left' }}>
+              Ready to optimize your emissions?
             </h2>
-
-            <p className="demo-desc">
-              Discover how CarbonTatva AI helps you measure, monitor, and
-              forecast emissions with precision. Our platform integrates
-              seamlessly with your systems to deliver actionable climate
-              insights.
-            </p>
-
-            <p className="demo-desc">
-              From <strong>tatva.ingest</strong> to{" "}
-              <strong>tatva.recommend</strong>, we provide end-to-end
-              intelligence to ensure compliance, optimise costs, and accelerate
-              your journey to net-zero.
-            </p>
-
-            <p className="demo-contact">
-              Or reach us at <span>support@carbontatva.com</span>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', lineHeight: '1.6', textAlign: 'left' }}>
+              Experience the full power of CarbonTatva AI natively tailored to your business needs. Join enterprises taking actionable steps towards net-zero operations today.
             </p>
           </div>
-
-          {/* RIGHT FORM */}
-          <form className="demo-form">
-            <div className="form-row">
-              <div className="form-group">
-                <label className="form-label">First Name</label>
-                <input
-                  name="firstName"
-                  type="text"
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div className="form-group">
-                <label className="form-label">Last Name</label>
-                <input
-                  name="lastName"
-                  type="text"
-                  required
-                  className="form-input"
-                />
-              </div>
-            </div>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label className="form-label">Email</label>
-                <input
-                  name="email"
-                  type="email"
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div className="form-group">
-                <label className="form-label">Contact No.</label>
-                <input name="phone" type="tel" className="form-input" />
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label className="form-label">Organization Name</label>
-              <input name="company" type="text" className="form-input" />
-            </div>
-
-            <div className="form-group">
-              <label className="form-label">Interested In</label>
-              <select name="interest" className="form-input">
-                <option>tatva.ingest</option>
-                <option>tatva.measure</option>
-                <option>tatva.forecast</option>
-                <option>tatva.gridprice</option>
-                <option>tatva.recommend</option>
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label className="form-label">Message</label>
-              <textarea
-                name="message"
-                className="form-textarea"
-                placeholder="Tell us about your requirements..."
-              />
-            </div>
-
-            <button type="submit" className="btn btn-primary demo-btn">
-              Request Demo →
+          <div>
+            <button onClick={() => window.location.href = '/demo'} className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.15rem' }}>
+              Book a Demo →
             </button>
-          </form>
+          </div>
         </div>
       </section>
     </main>

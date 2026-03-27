@@ -10,9 +10,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Offerings from "./pages/Offerings";
 import RD from "./pages/RD";
+import Demo from "./pages/Demo";
 
 /* 👇 ADD THIS */
-const ScrollToHash = () => {
+const ScrollManager = () => {
   const location = useLocation();
 
   useEffect(() => {
@@ -43,6 +44,8 @@ const ScrollToHash = () => {
 
         setTimeout(() => clearInterval(interval), 2000);
       }
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     }
   }, [location]);
 
@@ -52,7 +55,7 @@ const ScrollToHash = () => {
 function App() {
   return (
     <Router>
-      <ScrollToHash /> {/* 👈 ADD HERE */}
+      <ScrollManager /> {/* 👈 ADD HERE */}
       <div className="page-container">
         <Navbar />
         <Routes>
@@ -60,6 +63,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/offerings" element={<Offerings />} />
           <Route path="/rd" element={<RD />} />
+          <Route path="/demo" element={<Demo />} />
         </Routes>
       </div>
     </Router>
