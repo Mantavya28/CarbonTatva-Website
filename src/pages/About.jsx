@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const foundersInterns = [
@@ -100,18 +101,13 @@ const About = () => {
               We are building AI-powered climate intelligence to measure,
               monitor, and reduce emissions.
             </p>
-            <button
+            <Link
+              to="/demo"
               className="btn btn-primary"
-              style={{
-                marginTop: "1.5rem",
-                padding: "0.75rem 2rem",
-                fontSize: "1.125rem",
-              }}
-              onClick={() => (window.location.href = "/demo")}
+              style={{ padding: "1rem 3rem", fontSize: "1.25rem" }}
             >
-              Request a demo{" "}
-              <ArrowRight size={20} style={{ marginLeft: "8px" }} />
-            </button>
+              Book a Demo
+            </Link>
           </div>
           <div className="about-logo-container">
             <img src="/CarbonTatvaAi_logo.png" alt="CarbonTatva AI" />
@@ -126,47 +122,128 @@ const About = () => {
           >
             Our <span>founder</span>
           </h2>
-          <p className="hero-subtitle" style={{ textAlign: 'center', margin: '0 auto 2rem', fontWeight: '600', color: 'var(--primary-green)' }}>
-            Building AI-driven solutions for real-world sustainability challenges.
+          <p
+            className="hero-subtitle"
+            style={{
+              textAlign: "center",
+              margin: "0 auto 2rem",
+              fontWeight: "600",
+              color: "var(--primary-green)",
+            }}
+          >
+            Building AI-driven solutions for real-world sustainability
+            challenges.
           </p>
 
           <div className="single-founder-container">
-            <img src="/mantavya.jpg" alt="Mantavya Upadhyay" className="single-founder-photo" />
+            <img
+              src="/mantavya.jpg"
+              alt="Mantavya Upadhyay"
+              className="single-founder-photo"
+            />
             <div className="single-founder-info">
-              <h3 className="single-founder-name" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+              <h3
+                className="single-founder-name"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.75rem",
+                  marginBottom: "1rem",
+                }}
+              >
                 Mantavya Upadhyay
-                <a href="https://www.linkedin.com/in/mantavya-upadhyay/" target="_blank" rel="noopener noreferrer" style={{ color: '#0A66C2', display: 'inline-flex', alignItems: 'center' }}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                <a
+                  href="https://www.linkedin.com/in/mantavya-upadhyay/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: "#0A66C2",
+                    display: "inline-flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
                 </a>
               </h3>
               <p className="single-founder-bio">
-                Mantavya Upadhyay is a climate-tech innovator building AI-native solutions to measure, monitor, and reduce carbon emissions.
+                Mantavya Upadhyay is a climate-tech innovator building AI-native
+                solutions to measure, monitor, and reduce carbon emissions.
               </p>
               <p className="single-founder-bio">
-                A B.Tech Electrical Engineering student from IIT Kanpur, his work sits at the intersection of sustainability, energy systems, and machine learning. He has led research on electricity demand forecasting and climate impact modelling, and brings cross-functional experience across product, strategy, and operations through roles at ITC Limited, Noora Health, Zydus Lifesciences and the Andhra Pradesh Government. His work combines deep technical understanding with real-world execution to drive scalable climate action.
+                A B.Tech Electrical Engineering student from IIT Kanpur, his
+                work sits at the intersection of sustainability, energy systems,
+                and machine learning. He has led research on electricity demand
+                forecasting and climate impact modelling, and brings
+                cross-functional experience across product, strategy, and
+                operations through roles at ITC Limited, Noora Health, Zydus
+                Lifesciences and the Andhra Pradesh Government. His work
+                combines deep technical understanding with real-world execution
+                to drive scalable climate action.
               </p>
             </div>
           </div>
         </section>
 
         {/* Interns Section */}
-        <section className="interns-section" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
+        <section
+          className="interns-section"
+          style={{ maxWidth: "1200px", margin: "0 auto", width: "100%" }}
+        >
           <h2
             className="hero-title"
-            style={{ fontSize: "3rem", marginBottom: "4rem", textAlign: "center", margin: "0 auto 4rem" }}
+            style={{
+              fontSize: "3rem",
+              marginBottom: "4rem",
+              textAlign: "center",
+              margin: "0 auto 4rem",
+            }}
           >
             Our <span>interns</span>
           </h2>
 
-          <h3 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '3rem', color: 'var(--text-main)' }}>Founder's Office Interns</h3>
+          <h3
+            style={{
+              fontSize: "2rem",
+              textAlign: "center",
+              marginBottom: "3rem",
+              color: "var(--text-main)",
+            }}
+          >
+            Founder's Office Interns
+          </h3>
           {renderInterns(foundersInterns)}
 
-          <h3 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '3rem', color: 'var(--text-main)' }}>Developer Interns</h3>
+          <h3
+            style={{
+              fontSize: "2rem",
+              textAlign: "center",
+              marginBottom: "3rem",
+              color: "var(--text-main)",
+            }}
+          >
+            Developer Interns
+          </h3>
           {renderInterns(devInterns)}
 
-          <h3 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '3rem', color: 'var(--text-main)' }}>Design Interns</h3>
+          <h3
+            style={{
+              fontSize: "2rem",
+              textAlign: "center",
+              marginBottom: "3rem",
+              color: "var(--text-main)",
+            }}
+          >
+            Design Interns
+          </h3>
           {renderInterns(designInterns)}
-
         </section>
       </div>
     </main>
