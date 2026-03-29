@@ -42,7 +42,7 @@ const Demo = () => {
     const formData = new FormData(e.target);
     
     try {
-      await fetch("https://formsubmit.co/ajax/tanmayrandomuse@gmail.com", {
+      await fetch("https://formsubmit.co/ajax/support@carbontatva.com", {
         method: "POST",
         headers: {
             'Accept': 'application/json'
