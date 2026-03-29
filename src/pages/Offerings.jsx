@@ -70,9 +70,9 @@ const Offerings = () => {
             </p>
           </div>
           <div>
-            <button onClick={() => window.location.href = '/demo'} className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.15rem' }}>
+            <Link to="/demo" className="btn btn-primary" style={{ padding: "1rem 3rem", fontSize: "1.25rem" }}>
               Book a Demo →
-            </button>
+            </Link>
           </div>
         </div>
       </section>
