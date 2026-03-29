@@ -66,7 +66,7 @@ const Offerings = () => {
               Ready to optimize your emissions?
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', lineHeight: '1.6', textAlign: 'left' }}>
-              Experience the full power of CarbonTatva AI natively tailored to your business needs. Join enterprises taking actionable steps towards net-zero operations today.
+              Experience the full power of CarbonTatva AI tailored to your business needs.
             </p>
           </div>
           <div>

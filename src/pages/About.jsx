@@ -3,32 +3,32 @@ import { ArrowRight } from "lucide-react";
 
 const About = () => {
   const foundersInterns = [
-    { name: 'Tanishq Soni', linkedin: 'https://www.linkedin.com/in/tanishq-soni-946a66293/', photo: '/interns/tanishq.jpeg' },
-    { name: 'Rishika Rathore', linkedin: null, photo: '/interns/rishika.jpeg' },
+    { name: 'Aryan Saini', linkedin: 'https://www.linkedin.com/in/aryan-saini-4b7797288/', photo: '/interns/aryan.jpeg' },
     { name: 'Prince Yadav', linkedin: 'https://www.linkedin.com/in/prince-yadav-1403py/', photo: '/interns/prince.jpeg' },
     { name: 'Rajat', linkedin: 'https://www.linkedin.com/in/rajat-b92183207/', photo: '/interns/rajat.jpeg' },
-    { name: 'Aryan Saini', linkedin: 'https://www.linkedin.com/in/aryan-saini-4b7797288/', photo: '/interns/aryan.jpeg' },
+    { name: 'Rishika Rathore', linkedin: 'https://www.linkedin.com/in/rishika-kumari-4bab2522a/', photo: '/interns/rishika.jpeg' },
     { name: 'Sanchit Arora', linkedin: 'https://www.linkedin.com/in/sanchit-arora-49ba27296/', photo: '/interns/sanchit.jpeg' },
+    { name: 'Tanishq Soni', linkedin: 'https://www.linkedin.com/in/tanishq-soni-946a66293/', photo: '/interns/tanishq.jpeg' }
   ];
 
   const devInterns = [
-    { name: 'Vibhor Srivastava', linkedin: 'https://www.linkedin.com/in/vibhor-srivastava-496b4327b/', photo: '/interns/vibhor.jpeg' },
-    { name: 'Tanmay Prasad', linkedin: 'https://www.linkedin.com/in/tanmayprasad02/', photo: '/interns/tanmay.jpeg' },
-    { name: 'Varun Malviya', linkedin: 'https://www.linkedin.com/in/varun-malviya-6ab47a18a/', photo: null },
-    { name: 'Harsh Gupta', linkedin: 'https://www.linkedin.com/in/varun-malviya-6ab47a18a/', photo: '/interns/harsh.jpeg' },
-    { name: 'Rajat', linkedin: 'https://www.linkedin.com/in/rajat-b92183207/', photo: '/interns/rajat.jpeg' },
-    { name: 'Ankit', linkedin: null, photo: null },
-    { name: 'Kushal Agarwal', linkedin: 'https://www.linkedin.com/in/kushal-agrawal-1b2722298/', photo: '/interns/kushal.jpeg' },
+    { name: 'Ankit Kumar Dubey', linkedin: 'https://www.linkedin.com/in/ankit-kumar-dubey-830847293/', photo: '/interns/ankit.jpeg' },
     { name: 'Anku Kr Singh', linkedin: null, photo: '/interns/anku.jpeg' },
-    { name: 'Yash Pathak', linkedin: 'https://www.linkedin.com/in/yash-pathak-24802128b/', photo: '/interns/yash.jpeg' },
-    { name: 'Shourya', linkedin: null, photo: '/interns/shourya.jpeg' },
-    { name: 'Shreyansh', linkedin: null, photo: '/interns/shreyansh.jpeg' },
+    { name: 'Harsh Gupta', linkedin: 'https://www.linkedin.com/in/varun-malviya-6ab47a18a/', photo: '/interns/harsh.jpeg' },
+    { name: 'Kushal Agarwal', linkedin: 'https://www.linkedin.com/in/kushal-agrawal-1b2722298/', photo: '/interns/kushal.jpeg' },
+    { name: 'Rajat', linkedin: 'https://www.linkedin.com/in/rajat-b92183207/', photo: '/interns/rajat.jpeg' },
     { name: 'Sanvi Jain', linkedin: 'https://www.linkedin.com/in/sanvi-jain-0a9a2b280/', photo: '/interns/sanvi.jpeg' },
+    { name: 'Shourya Mathur', linkedin: 'https://www.linkedin.com/in/shourya-mathur-56918221a/', photo: '/interns/shourya.jpeg' },
+    { name: 'Shreyansh Devangan', linkedin: 'https://www.linkedin.com/in/shreyansh-dewangan-85a4bb283/', photo: '/interns/shreyansh.jpeg' },
+    { name: 'Tanmay Prasad', linkedin: 'https://www.linkedin.com/in/tanmayprasad02/', photo: '/interns/tanmay.jpeg' },
+    { name: 'Varun Malviya', linkedin: 'https://www.linkedin.com/in/varun-malviya-6ab47a18a/', photo: '/interns/varun.jpeg' },
+    { name: 'Vibhor Srivastava', linkedin: 'https://www.linkedin.com/in/vibhor-srivastava-496b4327b/', photo: '/interns/vibhor.jpeg' },
     { name: 'Vivek', linkedin: 'https://www.linkedin.com/in/vivek-80ba11279/', photo: '/interns/vivek.jpeg' },
+    { name: 'Yash Pathak', linkedin: 'https://www.linkedin.com/in/yash-pathak-24802128b/', photo: '/interns/yash.jpeg' }
   ];
 
   const designInterns = [
-    { name: 'Ojasva', linkedin: null, photo: '/interns/ojasva.jpeg' },
+    { name: 'Ojasva', linkedin: 'https://www.linkedin.com/in/ojasva-tripathi-377b91241/', photo: '/interns/ojasva.jpeg' },
     { name: 'Prity', linkedin: null, photo: null },
     { name: 'Shefali Maheshwari', linkedin: null, photo: '/interns/shefali.jpeg' }
   ];

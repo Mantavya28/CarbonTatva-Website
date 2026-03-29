@@ -5,6 +5,8 @@ const Demo = () => {
   const [selectedInterests, setSelectedInterests] = useState([]);
 
   const [expandedId, setExpandedId] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const offerings = [
     { id: 'tatva.ingest', icon: <Database size={20} />, label: 'tatva.ingest', desc: 'Securely extract and harmonize operational data from disparate sources.' },
@@ -22,7 +24,45 @@ const Demo = () => {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.target);
+    
+    try {
+      await fetch("https://formsubmit.co/ajax/tanmayrandomuse@gmail.com", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json'
+        },
+        body: formData
+      });
+      setShowSuccess(true);
+      e.target.reset();
+      setSelectedInterests([]);
+    } catch (error) {
+       console.error(error);
+       alert("Error submitting form. Please try again.");
+    } finally {
+       setIsSubmitting(false);
+    }
+  };
+
   return (
+    <>
+      {showSuccess && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, animation: 'fadeIn 0.2s ease-out' }}>
+          <div style={{ background: 'white', padding: '3rem', borderRadius: '24px', textAlign: 'center', maxWidth: '400px', width: '90%', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}>
+            <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(16, 185, 129, 0.1)', color: 'var(--primary-green)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
+              <CheckCircle2 size={32} />
+            </div>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--text-main)', fontWeight: '800' }}>Demo Requested!</h3>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', lineHeight: '1.6' }}>We've received your request. Our team will reach out to schedule your demo.</p>
+            <button onClick={() => setShowSuccess(false)} className="btn btn-primary" style={{ width: '100%', padding: '0.875rem', fontSize: '1.1rem' }}>Done</button>
+          </div>
+        </div>
+      )}
     <main className="animate-fade-in" style={{ background: 'var(--bg-secondary)', minHeight: 'calc(100vh - 80px)', display: 'flex', alignItems: 'flex-start', paddingTop: '2rem', paddingBottom: '2rem' }}>
       <div className="container" style={{ width: '100%', maxWidth: '1400px', display: 'flex', flexWrap: 'wrap', gap: '2rem', padding: '0 1.5rem' }}>
 
@@ -65,8 +105,12 @@ const Demo = () => {
 
         {/* RIGHT FORM */}
         <div style={{ flex: '1.5', minWidth: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} onSubmit={(e) => { e.preventDefault(); alert("Demo requested!"); }}>
-
+          <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} onSubmit={handleSubmit}>
+             <input type="hidden" name="_subject" value="New Demo Request from Website" />
+             <input type="hidden" name="_captcha" value="false" />
+             <input type="text" name="_honey" style={{ display: 'none' }} />
+             <input type="hidden" name="selectedInterests" value={selectedInterests.join(', ')} />
+            
             <div style={{ display: 'flex', gap: '1.5rem' }}>
               <div style={{ flex: 1 }}>
                 <label className="form-label" style={{ fontSize: '0.9rem', marginBottom: '0.25rem' }}>First Name</label>
@@ -118,14 +162,15 @@ const Demo = () => {
               <textarea name="message" className="form-textarea" style={{ minHeight: '80px', padding: '0.6rem 1rem' }} />
             </div>
 
-            <button type="submit" className="btn btn-primary" style={{ padding: '0.875rem', fontSize: '1.1rem', width: '100%', maxWidth: '300px' }}>
-              Request Demo →
+            <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ padding: '0.875rem', fontSize: '1.1rem', width: '100%', maxWidth: '300px', opacity: isSubmitting ? 0.7 : 1 }}>
+              {isSubmitting ? 'Requesting...' : 'Request Demo →'}
             </button>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>By submitting this form, you agree to our privacy policy.</p>
           </form>
         </div>
       </div>
     </main>
+    </>
   );
 };
 

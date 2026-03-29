@@ -116,8 +116,8 @@ const Home = () => {
         <div className="container" style={{ position: "relative" }}>
           
           {/* Section Header */}
-          <div style={{ textAlign: "center", maxWidth: "900px", margin: "0 auto 4rem" }}>
-            <h2 className="hero-title" style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }}>
+          <div style={{ textAlign: "center", maxWidth: "100%", margin: "0 auto 4rem" }}>
+            <h2 className="hero-title" style={{ fontSize: "2.5rem", margin: "0 auto 2.5rem", maxWidth: "1200px" }}>
               Carbon management is still too <span>manual</span>, too{" "}
               <span>fragmented</span>, and too <span>complex</span>
             </h2>
@@ -176,7 +176,7 @@ const Home = () => {
             className="solution-block"
             style={{
               background: "white",
-              padding: "4rem",
+              padding: "4rem 2.5rem",
               borderRadius: "24px",
               boxShadow: "var(--shadow-md)",
               border: "1px solid var(--border-light)",
@@ -202,7 +202,7 @@ const Home = () => {
             <h2 style={{ fontSize: "2rem", fontWeight: "800", color: "var(--text-main)" }}>
               Transforming operational data into actionable insights
             </h2>
-            <p style={{ fontSize: "1.15rem", color: "var(--text-muted)", maxWidth: "800px", lineHeight: "1.8" }}>
+            <p style={{ fontSize: "1.15rem", color: "var(--text-muted)", maxWidth: "950px", lineHeight: "1.8" }}>
               CarbonTatva AI is an AI-native climate intelligence layer that sits
               on top of your existing systems and turns operational data into
               actionable insights. It helps businesses automate data integration,
