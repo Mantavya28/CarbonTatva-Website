@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, LogIn } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const About = () => {
@@ -104,8 +104,9 @@ const About = () => {
             <Link
               to="/demo"
               className="btn btn-primary"
-              style={{ padding: "1rem 3rem", fontSize: "1.25rem" }}
+              style={{ padding: "1rem 3rem", fontSize: "1.25rem", display: "inline-flex", alignItems: "center" }}
             >
+              <LogIn size={20} style={{ marginRight: "10px" }} />
               Book a Demo
             </Link>
           </div>

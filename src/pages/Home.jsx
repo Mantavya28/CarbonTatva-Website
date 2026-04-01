@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Database, BarChart2, TrendingUp, Lightbulb, AlertCircle, Scale, Target, LogIn } from 'lucide-react';
+import { ArrowRight, Database, BarChart2, TrendingUp, FileSearch, Eye, Settings, Scale, ShieldCheck, CircleDollarSign, Clock, Target, LogIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -12,15 +12,15 @@ const Home = () => {
       <section
         className="hero-section"
         style={{
-          minHeight: "80vh",
-          padding: "6rem 1.5rem",
+          minHeight: "65vh",
+          padding: "4rem 1.5rem 4rem",
           background:
             "radial-gradient(circle at top right, rgba(16, 185, 129, 0.05) 0%, var(--bg-color) 100%)",
         }}
       >
         <div
           className="container"
-          style={{ display: "flex", flexDirection: "column", gap: "4rem" }}
+          style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}
         >
           <div
             className="hero-content"
@@ -71,150 +71,136 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Visual direction: Clean product UI showing connected flow */}
-          <div className="hero-visual-flow">
-            <div className="flow-card">
-              <div className="flow-icon">
-                <Database size={28} />
-              </div>
-              <div className="flow-title">Data Ingestion</div>
-              <div className="flow-sub">ERP, IoT, Utility</div>
+          {/* Visual direction: 4.png Process Flow */}
+
+          <div className="process-flow-container">
+            <div className="process-card">
+              <div className="process-header">Data Sources</div>
+              <div className="process-icon"><Database size={40} strokeWidth={1.5} /></div>
+              <div className="process-title">Collect Data</div>
+              <div className="process-desc">From ERPs, invoices and energy bills.</div>
             </div>
-            <div className="flow-connector"></div>
-            <div className="flow-card">
-              <div className="flow-icon">
-                <BarChart2 size={28} />
-              </div>
-              <div className="flow-title">Measurement</div>
-              <div className="flow-sub">Scope 1, 2, 3</div>
+            <div className="process-arrow"><ArrowRight size={24} /></div>
+            <div className="process-card">
+              <div className="process-header">Measurements</div>
+              <div className="process-icon"><BarChart2 size={40} strokeWidth={1.5} /></div>
+              <div className="process-title">Measure Emissions</div>
+              <div className="process-desc">Scope 1,2,3 tracking</div>
             </div>
-            <div className="flow-connector"></div>
-            <div className="flow-card">
-              <div className="flow-icon">
-                <TrendingUp size={28} />
-              </div>
-              <div className="flow-title">Forecasting</div>
-              <div className="flow-sub">Predictive models</div>
+            <div className="process-arrow"><ArrowRight size={24} /></div>
+            <div className="process-card">
+              <div className="process-header">Forecasting</div>
+              <div className="process-icon"><TrendingUp size={40} strokeWidth={1.5} /></div>
+              <div className="process-title">Forecast Impact</div>
+              <div className="process-desc">AI-driven predictions</div>
             </div>
-            <div className="flow-connector"></div>
-            <div className="flow-card highlight">
-              <div className="flow-icon">
-                <Lightbulb size={28} />
-              </div>
-              <div className="flow-title">Recommendations</div>
-              <div className="flow-sub">Actionable insights</div>
+            <div className="process-arrow"><ArrowRight size={24} /></div>
+            <div className="process-card">
+              <div className="process-header">Insights</div>
+              <div className="process-icon"><FileSearch size={40} strokeWidth={1.5} /></div>
+              <div className="process-title">Actionable Insights</div>
+              <div className="process-desc">Decision-ready intelligence</div>
+            </div>
+          </div>
+          
+          <div style={{ textAlign: "center", marginTop: "1rem", fontSize: "1.5rem", fontWeight: "500", color: "var(--text-main)" }}>
+            From data to decisions — all in one platform.
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Problem Section matching 2.png */}
+      <section
+        className="problems-section"
+        style={{ background: "white", padding: "4rem 0" }}
+      >
+        <div className="container" style={{ position: "relative" }}>
+          
+          <div style={{ textAlign: "center", maxWidth: "100%", margin: "0 auto 3rem" }}>
+            <h2 className="hero-title" style={{ fontSize: "3.5rem", margin: "0 auto 1rem", maxWidth: "1200px", color: "var(--text-main)" }}>
+              Carbon management today is broken
+            </h2>
+            <p style={{ fontSize: "2.5rem", fontWeight: "700", color: "var(--primary-green)", marginBottom: "2rem" }}>
+              Manual • Fragmented • Complex
+            </p>
+            <p className="hero-subtitle" style={{ fontSize: "1.25rem", color: "var(--text-muted)", maxWidth: "800px", margin: "0 auto" }}>
+              But it doesn't have to be. CarbonTatva AI transforms overwhelming operational data directly into actionable climate intelligence.
+            </p>
+          </div>
+
+          <div className="feature-grid">
+            <div className="feature-card">
+              <Database size={48} strokeWidth={1.5} className="feature-icon" />
+              <h3 className="feature-title">Fragmented Data</h3>
+              <p className="feature-desc">Data spread across ERPs, bills, spreadsheets.</p>
+            </div>
+            <div className="feature-card">
+              <Settings size={48} strokeWidth={1.5} className="feature-icon" />
+              <h3 className="feature-title">Manual Processes</h3>
+              <p className="feature-desc">Time-consuming carbon tracking & reporting.</p>
+            </div>
+            <div className="feature-card">
+              <Eye size={48} strokeWidth={1.5} className="feature-icon" />
+              <h3 className="feature-title">Lack of Visibility</h3>
+              <p className="feature-desc">No real time insights for decision making.</p>
+            </div>
+            <div className="feature-card">
+              <Scale size={48} strokeWidth={1.5} className="feature-icon" />
+              <h3 className="feature-title">Regulatory Pressure</h3>
+              <p className="feature-desc">Time-consuming carbon tracking & reporting.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Problem & Solution Section */}
+      {/* 3. Benefits Section matching 5.png */}
       <section
-        className="problems-section"
-        style={{ background: "var(--bg-secondary)", padding: "6rem 0 8rem" }}
+        className="benefits-section"
+        style={{ background: "white", padding: "4rem 0", position: "relative" }}
       >
-        <div className="container" style={{ position: "relative" }}>
+        <div className="container">
           
-          {/* Section Header */}
-          <div style={{ textAlign: "center", maxWidth: "100%", margin: "0 auto 4rem" }}>
-            <h2 className="hero-title" style={{ fontSize: "2.5rem", margin: "0 auto 2.5rem", maxWidth: "1200px" }}>
-              Carbon management is still too <span>manual</span>, too{" "}
-              <span>fragmented</span>, and too <span>complex</span>
+          <div style={{ textAlign: "center", maxWidth: "100%", margin: "0 auto 3rem" }}>
+            <h2 className="hero-title" style={{ fontSize: "3.5rem", margin: "0 auto 1rem", maxWidth: "1200px", color: "var(--text-main)" }}>
+              What this means for businesses
             </h2>
-            <p className="hero-subtitle" style={{ fontSize: '1.25rem', color: 'var(--text-muted)' }}>
-              But it doesn't have to be. CarbonTatva AI transforms overwhelming operational data directly into actionable climate intelligence.
+            <p style={{ fontSize: "2.5rem", fontWeight: "700", color: "var(--primary-green)", marginBottom: "2rem" }}>
+              Real impact, Measurable outcomes.
+            </p>
+            <p className="hero-subtitle" style={{ fontSize: "1.25rem", color: "var(--text-muted)", maxWidth: "1000px", margin: "0 auto", lineHeight: "1.8" }}>
+              CarbonTatva AI is an AI-native climate intelligence layer that sits on top of your existing systems and turns operational data into actionable insights. It helps businesses automate data integration, accurately calculate emissions, forecast future impacts, and identify reduction opportunities.
             </p>
           </div>
 
-          <div className="problems-grid" style={{ marginBottom: "5rem" }}>
-            {/* Pain point 1 */}
-            <div className="problem-card">
-              <div className="problem-icon">
-                <Database size={32} />
-              </div>
-              <p>
-                Businesses struggle with fragmented data spread across ERP
-                systems, utility bills, spreadsheets, and operational records.
-              </p>
+          <div className="feature-grid" style={{ marginBottom: "5rem" }}>
+            <div className="feature-card">
+              <ShieldCheck size={48} strokeWidth={1.5} className="feature-icon" />
+              <h3 className="feature-title">Reduce Compliance Complexity</h3>
+              <p className="feature-desc">Simplify CBAM & regulatory reporting</p>
             </div>
-            {/* Pain point 2 */}
-            <div className="problem-card">
-              <div className="problem-icon">
-                <AlertCircle size={32} />
-              </div>
-              <p>
-                Carbon tracking is often manual and time-consuming, making it
-                difficult to maintain accuracy, consistency, and real-time
-                visibility.
-              </p>
+            <div className="feature-card">
+              <CircleDollarSign size={48} strokeWidth={1.5} className="feature-icon" />
+              <h3 className="feature-title">Optimize costs</h3>
+              <p className="feature-desc">Identify inefficiencies and reduce emissions-related costs.</p>
             </div>
-            {/* Pain point 3 */}
-            <div className="problem-card">
-              <div className="problem-icon">
-                <Scale size={32} />
-              </div>
-              <p>
-                Regulatory requirements such as CBAM and CCTS add another layer
-                of complexity, increasing the need for compliance-ready
-                emissions intelligence.
-              </p>
+            <div className="feature-card">
+              <Clock size={48} strokeWidth={1.5} className="feature-icon" />
+              <h3 className="feature-title">Faster Decisions</h3>
+              <p className="feature-desc">Real time insights for better business decisions</p>
             </div>
-            {/* Pain point 4 */}
-            <div className="problem-card">
-              <div className="problem-icon">
-                <Target size={32} />
-              </div>
-              <p>
-                Emerging mechanisms like CCTS are turning emissions into a
-                direct cost factor, making carbon efficiency a critical driver
-                of competitiveness and margin protection.
-              </p>
+            <div className="feature-card">
+              <Target size={48} strokeWidth={1.5} className="feature-icon" />
+              <h3 className="feature-title">Accelerate Net-Zero Goals</h3>
+              <p className="feature-desc">Structured path towards sustainability targets</p>
             </div>
           </div>
+          
+          <div style={{ textAlign: 'center', fontSize: '1.5rem', fontWeight: '500', color: 'var(--text-main)' }}>
+            Make decisions 3x faster with real-time <span style={{ color: 'var(--primary-green)' }}>Carbon Intelligence.</span>
+          </div>
 
-          <div
-            className="solution-block"
-            style={{
-              background: "white",
-              padding: "4rem 2.5rem",
-              borderRadius: "24px",
-              boxShadow: "var(--shadow-md)",
-              border: "1px solid var(--border-light)",
-              textAlign: "center",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "1.5rem"
-            }}
-          >
-            <div
-              style={{
-                display: "inline-block",
-                padding: "0.5rem 1rem",
-                background: "rgba(16, 185, 129, 0.1)",
-                color: "var(--primary-green-dark)",
-                borderRadius: "9999px",
-                fontWeight: "600",
-              }}
-            >
-              The CarbonTatva Advantage
-            </div>
-            <h2 style={{ fontSize: "2rem", fontWeight: "800", color: "var(--text-main)" }}>
-              Transforming operational data into actionable insights
-            </h2>
-            <p style={{ fontSize: "1.15rem", color: "var(--text-muted)", maxWidth: "950px", lineHeight: "1.8" }}>
-              CarbonTatva AI is an AI-native climate intelligence layer that sits
-              on top of your existing systems and turns operational data into
-              actionable insights. It helps businesses automate data integration,
-              accurately calculate emissions, forecast future impacts, and
-              identify reduction opportunities, all while supporting compliance
-              readiness and smarter decision-making.
-            </p>
-            <Link
-              to="/offerings"
-              className="btn btn-primary"
-              style={{ padding: "1rem 3rem", fontSize: "1.15rem", marginTop: "1rem" }}
-            >
+          <div style={{ textAlign: "center", marginTop: "4rem" }}>
+            <Link to="/offerings" className="btn btn-primary" style={{ padding: "1rem 3rem", fontSize: "1.15rem" }}>
               Explore Features <ArrowRight size={20} style={{ marginLeft: "10px" }} />
             </Link>
           </div>
