@@ -12,7 +12,8 @@ const Offerings = () => {
     {
       title: 'tatva.measure',
       icon: <BarChart2 size={56} />,
-      description: 'tatva.measure converts operational data into accurate carbon emissions across Scope 1, 2, and 3, aligned with GHG Protocol standards. It applies intelligent emission factors and validation checks to ensure consistency and audit-readiness, enabling businesses to track their carbon footprint in real time while meeting regulatory and reporting requirements.'
+      description: 'tatva.measure converts operational data into accurate carbon emissions across Scope 1, 2, and 3, aligned with GHG Protocol standards. It applies intelligent emission factors and validation checks to ensure consistency and audit-readiness, enabling businesses to track their carbon footprint in real time while meeting regulatory and reporting requirements.',
+      cta: { text: 'Try our ESG Calculator', link: '/esg-calculator' }
     },
     {
       title: 'tatva.forecast',
@@ -53,7 +54,12 @@ const Offerings = () => {
               <div className="offering-icon-wrapper">{offering.icon}</div>
               <div className="offering-content">
                 <h2 className="offering-title">{offering.title}</h2>
-                <p className="offering-desc">{offering.description}</p>
+                <p className="offering-desc" style={{ marginBottom: offering.cta ? '1.5rem' : '0' }}>{offering.description}</p>
+                {offering.cta && (
+                  <Link to={offering.cta.link} className="btn btn-primary" style={{ padding: '0.75rem 1.5rem', display: 'inline-block' }}>
+                    {offering.cta.text}
+                  </Link>
+                )}
               </div>
             </div>
           ))}

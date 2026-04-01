@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Offerings from "./pages/Offerings";
 import RD from "./pages/RD";
 import Demo from "./pages/Demo";
+import ESGCalculator from "./pages/ESGCalculator";
 
 /* 👇 ADD THIS */
 const ScrollManager = () => {
@@ -64,6 +65,7 @@ function App() {
           <Route path="/offerings" element={<Offerings />} />
           <Route path="/rd" element={<RD />} />
           <Route path="/demo" element={<Demo />} />
+          <Route path="/esg-calculator" element={<ESGCalculator />} />
         </Routes>
       </div>
     </Router>
