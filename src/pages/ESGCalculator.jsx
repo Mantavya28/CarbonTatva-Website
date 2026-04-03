@@ -29,15 +29,19 @@ const ESGCalculator = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [category, setCategory] = useState('');
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
+  const [factorSource, setFactorSource] = useState('');
+  const [isSourceDropdownOpen, setIsSourceDropdownOpen] = useState(false);
+  const factorSources = ['IEA', 'IPCC', 'GHG', 'MoEFCC'];
   const [quantity, setQuantity] = useState('');
-  const [submittedCount, setSubmittedCount] = useState(0);
 
   const activities = [...new Set(EMISSION_FACTORS.map(f => f.activity))];
-  const premiumActivities = activities.slice(-5);
-  const availableCategories = EMISSION_FACTORS.filter(f => f.activity === activity);
+  const scope1Activity = EMISSION_FACTORS.find(f => f.scope === 1)?.activity;
+  const scope2Activity = EMISSION_FACTORS.find(f => f.scope === 2)?.activity;
+  const scope3Activity = EMISSION_FACTORS.find(f => f.scope === 3)?.activity;
+  const freeActivities = [...new Set([scope1Activity, scope2Activity, scope3Activity].filter(Boolean))];
+  const premiumActivities = activities.filter(a => !freeActivities.includes(a));
 
-  const sessionLimit = 5;
-  const entriesRemaining = Math.max(0, sessionLimit - submittedCount);
+  const availableCategories = EMISSION_FACTORS.filter(f => f.activity === activity);
 
   const currentFactor = EMISSION_FACTORS.find(f => f.activity === activity && f.category === category);
   const unitHint = currentFactor ? `in ${currentFactor.unit}` : '';
@@ -45,7 +49,6 @@ const ESGCalculator = () => {
   const handleAddEntry = (e) => {
     e.preventDefault();
     if (!activity || !category || !quantity || isNaN(quantity) || quantity <= 0) return;
-    if (entriesRemaining <= 0) return;
 
     const emission = parseFloat(quantity) * currentFactor.factor;
 
@@ -57,14 +60,15 @@ const ESGCalculator = () => {
       unit: currentFactor.unit,
       emission,
       scope: currentFactor.scope,
-      factor: currentFactor.factor
+      factor: currentFactor.factor,
+      source: factorSource
     };
 
     setEntries([...entries, newEntry]);
-    setSubmittedCount(prev => prev + 1);
 
     setActivity('');
     setCategory('');
+    setFactorSource('');
     setQuantity('');
   };
 
@@ -133,10 +137,10 @@ const ESGCalculator = () => {
           </p>
         </div>
 
-        {/* Upgrade Banner */}
+        {/* Subscribe Banner */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
-          <Link to="/pricing" className="btn" style={{ padding: '0.875rem 2.5rem', fontSize: '1.05rem', display: 'flex', gap: '8px', alignItems: 'center', background: 'var(--text-main)', color: 'white', borderRadius: '999px', boxShadow: 'var(--shadow-md)' }}>
-            <Lock size={18} /> Upgrade to Premium to unlock full limits
+          <Link to="/demo" className="btn" style={{ padding: '0.875rem 2.5rem', fontSize: '1.05rem', display: 'flex', gap: '8px', alignItems: 'center', background: 'var(--text-main)', color: 'white', borderRadius: '999px', boxShadow: 'var(--shadow-md)' }}>
+            <Lock size={18} /> Subscribe to access the full set of ESG factors
           </Link>
         </div>
 
@@ -144,9 +148,6 @@ const ESGCalculator = () => {
         <div style={{ background: 'white', padding: '2rem', borderRadius: '24px', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border-light)', marginBottom: '2.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
             <h3 style={{ fontSize: '1.25rem', color: 'var(--text-main)', margin: 0 }}>Add Emission Entry</h3>
-            <div style={{ fontSize: '1.1rem', fontWeight: '600', color: entriesRemaining <= 0 ? '#ef4444' : 'var(--text-muted)' }}>
-              Remaining: {entriesRemaining} / {sessionLimit}
-            </div>
           </div>
 
           <form onSubmit={handleAddEntry} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', alignItems: 'end' }}>
@@ -172,33 +173,34 @@ const ESGCalculator = () => {
 
                 {isDropdownOpen && (
                   <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: 'white', border: '1px solid var(--border-light)', borderRadius: '12px', marginTop: '4px', zIndex: 50, boxShadow: 'var(--shadow-md)', maxHeight: '350px', overflowY: 'auto', overflowX: 'hidden' }}>
-                    {activities.filter(a => !premiumActivities.includes(a)).map(act => (
-                      <div
-                        key={act}
-                        style={{ padding: '0.875rem 1rem', cursor: 'pointer', borderBottom: '1px solid var(--border-light)' }}
-                        onClick={() => { setActivity(act); setCategory(''); setIsDropdownOpen(false); }}
-                        onMouseEnter={(e) => e.target.style.background = 'var(--bg-secondary)'}
-                        onMouseLeave={(e) => e.target.style.background = 'white'}
-                      >
-                        {act}
-                      </div>
-                    ))}
-
-                    {/* Locked Section */}
-                    <div style={{ position: 'relative', overflow: 'hidden' }}>
-                      <div style={{ filter: 'blur(3px)', opacity: 0.6, pointerEvents: 'none', background: 'var(--bg-secondary)', userSelect: 'none' }}>
-                        {premiumActivities.map(act => (
-                          <div key={act} style={{ padding: '0.875rem 1rem', borderTop: '1px solid var(--border-light)', color: 'var(--text-muted)' }}>
-                            {act}
-                          </div>
-                        ))}
-                      </div>
-                      <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.4)' }}>
-                        <Link to="/pricing" style={{ display: 'inline-flex', padding: '0.5rem 1rem', background: 'var(--text-main)', color: 'white', borderRadius: '999px', fontSize: '0.85rem', fontWeight: '500', alignItems: 'center', gap: '6px', transition: 'transform 0.2s' }}>
-                          <Lock size={14} /> Premium
-                        </Link>
-                      </div>
-                    </div>
+                    {[...freeActivities, ...premiumActivities].map(act => {
+                      const isPremium = premiumActivities.includes(act);
+                      return (
+                        <div
+                          key={act}
+                          style={{ 
+                            padding: '0.875rem 1rem', 
+                            cursor: isPremium ? 'not-allowed' : 'pointer', 
+                            borderBottom: '1px solid var(--border-light)',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            opacity: isPremium ? 0.6 : 1,
+                            background: isPremium ? 'var(--bg-secondary)' : 'white'
+                          }}
+                          onClick={() => { 
+                            if (!isPremium) {
+                              setActivity(act); setCategory(''); setIsDropdownOpen(false); 
+                            }
+                          }}
+                          onMouseEnter={(e) => { if (!isPremium) e.target.style.background = 'var(--bg-secondary)' }}
+                          onMouseLeave={(e) => { if (!isPremium) e.target.style.background = 'white' }}
+                        >
+                          <span style={{ paddingRight: '8px' }}>{act}</span>
+                          {isPremium && <Lock size={14} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />}
+                        </div>
+                      )
+                    })}
                   </div>
                 )}
               </div>
@@ -243,6 +245,44 @@ const ESGCalculator = () => {
             </div>
 
             <div>
+              <label className="form-label" style={{ marginBottom: '0.4rem', fontSize: '0.9rem' }}>Factor Source</label>
+              <div
+                style={{ position: 'relative', opacity: !category ? 0.6 : 1, pointerEvents: !category ? 'none' : 'auto' }}
+                tabIndex={0}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget)) setIsSourceDropdownOpen(false);
+                }}
+              >
+                <div
+                  className="form-input"
+                  style={{ padding: '0.875rem 1rem', height: '52px', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'white' }}
+                  onClick={() => setIsSourceDropdownOpen(!isSourceDropdownOpen)}
+                >
+                  <span style={{ color: factorSource ? 'inherit' : '#9ca3af', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {factorSource || 'Select Source'}
+                  </span>
+                  <ChevronDown size={16} style={{ color: '#9ca3af', minWidth: '16px' }} />
+                </div>
+
+                {isSourceDropdownOpen && (
+                  <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: 'white', border: '1px solid var(--border-light)', borderRadius: '12px', marginTop: '4px', zIndex: 50, boxShadow: 'var(--shadow-md)', maxHeight: '350px', overflowY: 'auto', overflowX: 'hidden' }}>
+                    {factorSources.map(src => (
+                      <div
+                        key={src}
+                        style={{ padding: '0.875rem 1rem', cursor: 'pointer', borderBottom: '1px solid var(--border-light)' }}
+                        onClick={() => { setFactorSource(src); setIsSourceDropdownOpen(false); }}
+                        onMouseEnter={(e) => e.target.style.background = 'var(--bg-secondary)'}
+                        onMouseLeave={(e) => e.target.style.background = 'white'}
+                      >
+                        {src}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div>
               <label className="form-label" style={{ marginBottom: '0.4rem', fontSize: '0.9rem' }}>
                 Quantity {unitHint && <span style={{ color: 'var(--primary-green)', fontWeight: '600' }}>({unitHint})</span>}
               </label>
@@ -254,7 +294,7 @@ const ESGCalculator = () => {
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
                 required
-                disabled={!category}
+                disabled={!factorSource}
                 placeholder="E.g. 1000"
                 style={{ padding: '0.875rem 1rem', height: '52px' }}
               />
@@ -263,22 +303,15 @@ const ESGCalculator = () => {
             <div>
               <button 
                 type="submit" 
-                className={entriesRemaining <= 0 ? "btn" : "btn btn-primary"}
+                className="btn btn-primary"
                 style={{ 
                   padding: '0.875rem', 
                   display: 'flex', 
                   gap: '8px', 
                   justifyContent: 'center', 
                   height: '52px', 
-                  width: '100%',
-                  background: entriesRemaining <= 0 ? '#14532d' : undefined,
-                  color: entriesRemaining <= 0 ? '#9ca3af' : undefined,
-                  border: entriesRemaining <= 0 ? 'none' : undefined,
-                  boxShadow: entriesRemaining <= 0 ? 'none' : undefined,
-                  transform: entriesRemaining <= 0 ? 'none' : undefined,
-                  cursor: entriesRemaining <= 0 ? 'not-allowed' : 'pointer'
-                }} 
-                disabled={entriesRemaining <= 0}
+                  width: '100%'
+                }}
               >
                 <Plus size={20} /> Add Entry
               </button>
@@ -367,6 +400,7 @@ const ESGCalculator = () => {
                     <th style={{ padding: '1rem' }}>Activity Group</th>
                     <th style={{ padding: '1rem' }}>Emission Category</th>
                     <th style={{ padding: '1rem' }}>Quantity</th>
+                    <th style={{ padding: '1rem' }}>Source</th>
                     <th style={{ padding: '1rem' }}>Emission Factor</th>
                     <th style={{ padding: '1rem' }}>Scope</th>
                     <th style={{ padding: '1rem' }}>Total Emission</th>
@@ -379,12 +413,13 @@ const ESGCalculator = () => {
                       <td style={{ padding: '1.25rem 1rem', fontWeight: '500' }}>{entry.activity}</td>
                       <td style={{ padding: '1.25rem 1rem', color: 'var(--text-main)' }}>{entry.category}</td>
                       <td style={{ padding: '1.25rem 1rem' }}>{entry.quantity} <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>{entry.unit}</span></td>
+                      <td style={{ padding: '1.25rem 1rem' }}>{entry.source}</td>
 
                       {index === 0 && (
                         <td colSpan={3} rowSpan={entries.length} style={{ position: 'relative', borderLeft: '1px solid var(--border-light)', background: 'var(--bg-secondary)', padding: 0 }}>
                           <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.4)', padding: '2rem', textAlign: 'center' }}>
-                            <Link to="/pricing" style={{ display: 'inline-flex', padding: '0.5rem 1rem', background: 'var(--text-main)', color: 'white', borderRadius: '999px', fontSize: '0.85rem', fontWeight: '500', alignItems: 'center', gap: '6px', transition: 'transform 0.2s', boxShadow: 'var(--shadow-md)' }}>
-                              <Lock size={14} /> Premium
+                            <Link to="/demo" style={{ display: 'inline-flex', padding: '0.5rem 1rem', background: 'var(--text-main)', color: 'white', borderRadius: '999px', fontSize: '0.85rem', fontWeight: '500', alignItems: 'center', gap: '6px', transition: 'transform 0.2s', boxShadow: 'var(--shadow-md)' }}>
+                              <Lock size={14} /> Subscribe
                             </Link>
                           </div>
                         </td>

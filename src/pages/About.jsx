@@ -28,7 +28,7 @@ const About = () => {
   ];
 
   const designInterns = [
-    { name: "Deepanshi Mishra", linkedin: "https://www.linkedin.com/in/deepanshi-mishra-179b502a8/", photo: null },
+    { name: "Deepanshi Mishra", linkedin: "https://www.linkedin.com/in/deepanshi-mishra-179b502a8/", photo: '/interns/deepanshi.png' },
     {
       name: "Ojasva",
       linkedin: "https://www.linkedin.com/in/ojasva-tripathi-377b91241/",
@@ -37,7 +37,7 @@ const About = () => {
 
     {
       name: "Shefali Maheshwari",
-      linkedin: null,
+      linkedin: 'https://www.linkedin.com/in/shefali-maheshwari-36044918b/',
       photo: "/interns/shefali.jpeg",
     },
   ];
