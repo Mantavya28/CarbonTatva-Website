@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   const foundersInterns = [
-    { name: 'Aryan Saini', linkedin: 'https://www.linkedin.com/in/aryan-saini-4b7797288/', photo: '/interns/aryan.jpeg' },
+    // { name: 'Aryan Saini', linkedin: 'https://www.linkedin.com/in/aryan-saini-4b7797288/', photo: '/interns/aryan.jpeg' },
     { name: 'Prince Yadav', linkedin: 'https://www.linkedin.com/in/prince-yadav-1403py/', photo: '/interns/prince.jpeg' },
     { name: 'Rajat', linkedin: 'https://www.linkedin.com/in/rajat-b92183207/', photo: '/interns/rajat.jpeg' },
     { name: 'Rishika Rathore', linkedin: 'https://www.linkedin.com/in/rishika-kumari-4bab2522a/', photo: '/interns/rishika.jpeg' },
@@ -17,7 +17,6 @@ const About = () => {
     { name: 'Anku Kr Singh', linkedin: null, photo: '/interns/anku.jpeg' },
     { name: 'Harsh Gupta', linkedin: 'https://www.linkedin.com/in/varun-malviya-6ab47a18a/', photo: '/interns/harsh.jpeg' },
     { name: 'Kushal Agarwal', linkedin: 'https://www.linkedin.com/in/kushal-agrawal-1b2722298/', photo: '/interns/kushal.jpeg' },
-    { name: 'Rajat', linkedin: 'https://www.linkedin.com/in/rajat-b92183207/', photo: '/interns/rajat.jpeg' },
     { name: 'Sanvi Jain', linkedin: 'https://www.linkedin.com/in/sanvi-jain-0a9a2b280/', photo: '/interns/sanvi.jpeg' },
     { name: 'Shourya Mathur', linkedin: 'https://www.linkedin.com/in/shourya-mathur-56918221a/', photo: '/interns/shourya.jpeg' },
     { name: 'Shreyansh Devangan', linkedin: 'https://www.linkedin.com/in/shreyansh-dewangan-85a4bb283/', photo: '/interns/shreyansh.jpeg' },
@@ -29,9 +28,18 @@ const About = () => {
   ];
 
   const designInterns = [
-    { name: 'Ojasva', linkedin: 'https://www.linkedin.com/in/ojasva-tripathi-377b91241/', photo: '/interns/ojasva.jpeg' },
-    { name: 'Prity', linkedin: null, photo: null },
-    { name: 'Shefali Maheshwari', linkedin: null, photo: '/interns/shefali.jpeg' }
+    { name: "Deepanshi Mishra", linkedin: "https://www.linkedin.com/in/deepanshi-mishra-179b502a8/", photo: null },
+    {
+      name: "Ojasva",
+      linkedin: "https://www.linkedin.com/in/ojasva-tripathi-377b91241/",
+      photo: "/interns/ojasva.jpeg",
+    },
+
+    {
+      name: "Shefali Maheshwari",
+      linkedin: null,
+      photo: "/interns/shefali.jpeg",
+    },
   ];
 
   const renderInterns = (internList) => (

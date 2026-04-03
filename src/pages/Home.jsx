@@ -48,7 +48,7 @@ const Home = () => {
               style={{
                 fontSize: "1.35rem",
                 marginBottom: "3rem",
-                maxWidth: "800px",
+                maxWidth: "900px",
                 margin: "0 auto 3rem",
               }}
             >
@@ -64,7 +64,11 @@ const Home = () => {
                 flexWrap: "wrap",
               }}
             >
-              <Link to="/demo" className="btn btn-primary" style={{ padding: "1rem 3rem", fontSize: "1.25rem" }}>
+              <Link
+                to="/demo"
+                className="btn btn-primary"
+                style={{ padding: "1rem 3rem", fontSize: "1.25rem" }}
+              >
                 <LogIn size={20} style={{ marginRight: "10px" }} />
                 Book a demo
               </Link>
@@ -76,34 +80,58 @@ const Home = () => {
           <div className="process-flow-container">
             <div className="process-card">
               <div className="process-header">Data Sources</div>
-              <div className="process-icon"><Database size={40} strokeWidth={1.5} /></div>
+              <div className="process-icon">
+                <Database size={40} strokeWidth={1.5} />
+              </div>
               <div className="process-title">Collect Data</div>
-              <div className="process-desc">From ERPs, invoices and energy bills.</div>
+              <div className="process-desc">
+                From ERPs, invoices and energy bills.
+              </div>
             </div>
-            <div className="process-arrow"><ArrowRight size={24} /></div>
+            <div className="process-arrow">
+              <ArrowRight size={24} />
+            </div>
             <div className="process-card">
               <div className="process-header">Measurements</div>
-              <div className="process-icon"><BarChart2 size={40} strokeWidth={1.5} /></div>
+              <div className="process-icon">
+                <BarChart2 size={40} strokeWidth={1.5} />
+              </div>
               <div className="process-title">Measure Emissions</div>
               <div className="process-desc">Scope 1,2,3 tracking</div>
             </div>
-            <div className="process-arrow"><ArrowRight size={24} /></div>
+            <div className="process-arrow">
+              <ArrowRight size={24} />
+            </div>
             <div className="process-card">
               <div className="process-header">Forecasting</div>
-              <div className="process-icon"><TrendingUp size={40} strokeWidth={1.5} /></div>
+              <div className="process-icon">
+                <TrendingUp size={40} strokeWidth={1.5} />
+              </div>
               <div className="process-title">Forecast Impact</div>
               <div className="process-desc">AI-driven predictions</div>
             </div>
-            <div className="process-arrow"><ArrowRight size={24} /></div>
+            <div className="process-arrow">
+              <ArrowRight size={24} />
+            </div>
             <div className="process-card">
               <div className="process-header">Insights</div>
-              <div className="process-icon"><FileSearch size={40} strokeWidth={1.5} /></div>
+              <div className="process-icon">
+                <FileSearch size={40} strokeWidth={1.5} />
+              </div>
               <div className="process-title">Actionable Insights</div>
               <div className="process-desc">Decision-ready intelligence</div>
             </div>
           </div>
-          
-          <div style={{ textAlign: "center", marginTop: "1rem", fontSize: "1.5rem", fontWeight: "500", color: "var(--text-main)" }}>
+
+          <div
+            style={{
+              textAlign: "center",
+              marginTop: "1rem",
+              fontSize: "1.5rem",
+              fontWeight: "500",
+              color: "var(--text-main)",
+            }}
+          >
             From data to decisions — all in one platform.
           </div>
         </div>
@@ -115,16 +143,33 @@ const Home = () => {
         style={{ background: "white", padding: "4rem 0" }}
       >
         <div className="container" style={{ position: "relative" }}>
-          
-          <div style={{ textAlign: "center", maxWidth: "100%", margin: "0 auto 3rem" }}>
-            <h2 className="hero-title" style={{ fontSize: "3.5rem", margin: "0 auto 1rem", maxWidth: "1200px", color: "var(--text-main)" }}>
+          <div
+            style={{
+              textAlign: "center",
+              maxWidth: "100%",
+              margin: "0 auto 3rem",
+            }}
+          >
+            <h2
+              className="hero-title"
+              style={{
+                fontSize: "3.5rem",
+                margin: "0 auto 1rem",
+                maxWidth: "1200px",
+                color: "var(--text-main)",
+              }}
+            >
               Carbon management today is broken
             </h2>
-            <p style={{ fontSize: "2.5rem", fontWeight: "700", color: "var(--primary-green)", marginBottom: "2rem" }}>
+            <p
+              style={{
+                fontSize: "2.5rem",
+                fontWeight: "700",
+                color: "var(--primary-green)",
+                marginBottom: "2rem",
+              }}
+            >
               Manual • Fragmented • Complex
-            </p>
-            <p className="hero-subtitle" style={{ fontSize: "1.25rem", color: "var(--text-muted)", maxWidth: "800px", margin: "0 auto" }}>
-              But it doesn't have to be. CarbonTatva AI transforms overwhelming operational data directly into actionable climate intelligence.
             </p>
           </div>
 
@@ -132,22 +177,30 @@ const Home = () => {
             <div className="feature-card">
               <Database size={48} strokeWidth={1.5} className="feature-icon" />
               <h3 className="feature-title">Fragmented Data</h3>
-              <p className="feature-desc">Data spread across ERPs, bills, spreadsheets.</p>
+              <p className="feature-desc">
+                Data spread across ERPs, bills, spreadsheets.
+              </p>
             </div>
             <div className="feature-card">
               <Settings size={48} strokeWidth={1.5} className="feature-icon" />
               <h3 className="feature-title">Manual Processes</h3>
-              <p className="feature-desc">Time-consuming carbon tracking & reporting.</p>
+              <p className="feature-desc">
+                Time-consuming carbon tracking & reporting.
+              </p>
             </div>
             <div className="feature-card">
               <Eye size={48} strokeWidth={1.5} className="feature-icon" />
               <h3 className="feature-title">Lack of Visibility</h3>
-              <p className="feature-desc">No real time insights for decision making.</p>
+              <p className="feature-desc">
+                No real time insights for decision making.
+              </p>
             </div>
             <div className="feature-card">
               <Scale size={48} strokeWidth={1.5} className="feature-icon" />
               <h3 className="feature-title">Regulatory Pressure</h3>
-              <p className="feature-desc">Time-consuming carbon tracking & reporting.</p>
+              <p className="feature-desc">
+                Time-consuming carbon tracking & reporting.
+              </p>
             </div>
           </div>
         </div>
@@ -159,49 +212,115 @@ const Home = () => {
         style={{ background: "white", padding: "4rem 0", position: "relative" }}
       >
         <div className="container">
-          
-          <div style={{ textAlign: "center", maxWidth: "100%", margin: "0 auto 3rem" }}>
-            <h2 className="hero-title" style={{ fontSize: "3.5rem", margin: "0 auto 1rem", maxWidth: "1200px", color: "var(--text-main)" }}>
-              What this means for businesses
+          <div
+            style={{
+              textAlign: "center",
+              maxWidth: "100%",
+              margin: "0 auto 3rem",
+            }}
+          >
+            <h2
+              className="hero-title"
+              style={{
+                fontSize: "3.5rem",
+                margin: "0 auto 1rem",
+                maxWidth: "1200px",
+                color: "var(--text-main)",
+              }}
+            >
+              But it doesn't have to be
             </h2>
-            <p style={{ fontSize: "2.5rem", fontWeight: "700", color: "var(--primary-green)", marginBottom: "2rem" }}>
-              Real impact, Measurable outcomes.
+
+            <p
+              className="hero-subtitle"
+              style={{
+                fontSize: "1.25rem",
+                color: "var(--text-muted)",
+                maxWidth: "1000px",
+                margin: "0 auto",
+                lineHeight: "1.8",
+              }}
+            >
+              CarbonTatva AI is an AI-native climate intelligence layer that
+              sits on top of your existing systems and turns operational data
+              into actionable insights. It helps businesses automate data
+              integration, accurately calculate emissions, forecast future
+              impacts, and identify reduction opportunities.
             </p>
-            <p className="hero-subtitle" style={{ fontSize: "1.25rem", color: "var(--text-muted)", maxWidth: "1000px", margin: "0 auto", lineHeight: "1.8" }}>
-              CarbonTatva AI is an AI-native climate intelligence layer that sits on top of your existing systems and turns operational data into actionable insights. It helps businesses automate data integration, accurately calculate emissions, forecast future impacts, and identify reduction opportunities.
+            <p
+              style={{
+                fontSize: "2.5rem",
+                fontWeight: "700",
+                color: "var(--primary-green)",
+                marginBottom: "2rem",
+                paddingTop: "15px"
+              }}
+            >
+              Real impact, Measurable outcomes.
             </p>
           </div>
 
           <div className="feature-grid" style={{ marginBottom: "5rem" }}>
             <div className="feature-card">
-              <ShieldCheck size={48} strokeWidth={1.5} className="feature-icon" />
+              <ShieldCheck
+                size={48}
+                strokeWidth={1.5}
+                className="feature-icon"
+              />
               <h3 className="feature-title">Reduce Compliance Complexity</h3>
-              <p className="feature-desc">Simplify CBAM & regulatory reporting</p>
+              <p className="feature-desc">
+                Simplify CBAM & regulatory reporting
+              </p>
             </div>
             <div className="feature-card">
-              <CircleDollarSign size={48} strokeWidth={1.5} className="feature-icon" />
+              <CircleDollarSign
+                size={48}
+                strokeWidth={1.5}
+                className="feature-icon"
+              />
               <h3 className="feature-title">Optimize costs</h3>
-              <p className="feature-desc">Identify inefficiencies and reduce emissions-related costs.</p>
+              <p className="feature-desc">
+                Identify inefficiencies and reduce emissions-related costs.
+              </p>
             </div>
             <div className="feature-card">
               <Clock size={48} strokeWidth={1.5} className="feature-icon" />
               <h3 className="feature-title">Faster Decisions</h3>
-              <p className="feature-desc">Real time insights for better business decisions</p>
+              <p className="feature-desc">
+                Real time insights for better business decisions
+              </p>
             </div>
             <div className="feature-card">
               <Target size={48} strokeWidth={1.5} className="feature-icon" />
               <h3 className="feature-title">Accelerate Net-Zero Goals</h3>
-              <p className="feature-desc">Structured path towards sustainability targets</p>
+              <p className="feature-desc">
+                Structured path towards sustainability targets
+              </p>
             </div>
           </div>
-          
-          <div style={{ textAlign: 'center', fontSize: '1.5rem', fontWeight: '500', color: 'var(--text-main)' }}>
-            Make decisions 3x faster with real-time <span style={{ color: 'var(--primary-green)' }}>Carbon Intelligence.</span>
-          </div>
+
+          {/* <div
+            style={{
+              textAlign: "center",
+              fontSize: "1.5rem",
+              fontWeight: "500",
+              color: "var(--text-main)",
+            }}
+          >
+            Make decisions 3x faster with real-time{" "}
+            <span style={{ color: "var(--primary-green)" }}>
+              Carbon Intelligence.
+            </span>
+          </div> */}
 
           <div style={{ textAlign: "center", marginTop: "4rem" }}>
-            <Link to="/offerings" className="btn btn-primary" style={{ padding: "1rem 3rem", fontSize: "1.15rem" }}>
-              Explore Features <ArrowRight size={20} style={{ marginLeft: "10px" }} />
+            <Link
+              to="/offerings"
+              className="btn btn-primary"
+              style={{ padding: "1rem 3rem", fontSize: "1.15rem" }}
+            >
+              Explore Features{" "}
+              <ArrowRight size={20} style={{ marginLeft: "10px" }} />
             </Link>
           </div>
         </div>
