@@ -12,13 +12,18 @@ const RD = () => {
     const formData = new FormData(e.target);
     
     try {
-      await fetch("https://formsubmit.co/ajax/support@carbontatva.com", {
+      const response = await fetch("https://formsubmit.co/ajax/support@carbontatva.com", {
         method: "POST",
         headers: {
           Accept: "application/json",
         },
         body: formData,
       });
+      
+      if (!response.ok) {
+        throw new Error("FormSubmit activation required or submission denied.");
+      }
+      
       setShowSuccess(true);
       e.target.reset();
     } catch (error) {
