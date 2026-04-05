@@ -178,9 +178,9 @@ const ESGCalculator = () => {
                       return (
                         <div
                           key={act}
-                          style={{ 
-                            padding: '0.875rem 1rem', 
-                            cursor: isPremium ? 'not-allowed' : 'pointer', 
+                          style={{
+                            padding: '0.875rem 1rem',
+                            cursor: isPremium ? 'not-allowed' : 'pointer',
                             borderBottom: '1px solid var(--border-light)',
                             display: 'flex',
                             justifyContent: 'space-between',
@@ -188,9 +188,9 @@ const ESGCalculator = () => {
                             opacity: isPremium ? 0.6 : 1,
                             background: isPremium ? 'var(--bg-secondary)' : 'white'
                           }}
-                          onClick={() => { 
+                          onClick={() => {
                             if (!isPremium) {
-                              setActivity(act); setCategory(''); setIsDropdownOpen(false); 
+                              setActivity(act); setCategory(''); setIsDropdownOpen(false);
                             }
                           }}
                           onMouseEnter={(e) => { if (!isPremium) e.target.style.background = 'var(--bg-secondary)' }}
@@ -266,17 +266,34 @@ const ESGCalculator = () => {
 
                 {isSourceDropdownOpen && (
                   <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: 'white', border: '1px solid var(--border-light)', borderRadius: '12px', marginTop: '4px', zIndex: 50, boxShadow: 'var(--shadow-md)', maxHeight: '350px', overflowY: 'auto', overflowX: 'hidden' }}>
-                    {factorSources.map(src => (
-                      <div
-                        key={src}
-                        style={{ padding: '0.875rem 1rem', cursor: 'pointer', borderBottom: '1px solid var(--border-light)' }}
-                        onClick={() => { setFactorSource(src); setIsSourceDropdownOpen(false); }}
-                        onMouseEnter={(e) => e.target.style.background = 'var(--bg-secondary)'}
-                        onMouseLeave={(e) => e.target.style.background = 'white'}
-                      >
-                        {src}
-                      </div>
-                    ))}
+                    {factorSources.map(src => {
+                      const isPremium = src !== 'IEA';
+                      return (
+                        <div
+                          key={src}
+                          style={{
+                            padding: '0.875rem 1rem',
+                            cursor: isPremium ? 'not-allowed' : 'pointer',
+                            borderBottom: '1px solid var(--border-light)',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            opacity: isPremium ? 0.6 : 1,
+                            background: isPremium ? 'var(--bg-secondary)' : 'white'
+                          }}
+                          onClick={() => {
+                            if (!isPremium) {
+                              setFactorSource(src); setIsSourceDropdownOpen(false);
+                            }
+                          }}
+                          onMouseEnter={(e) => { if (!isPremium) e.target.style.background = 'var(--bg-secondary)' }}
+                          onMouseLeave={(e) => { if (!isPremium) e.target.style.background = 'white' }}
+                        >
+                          <span style={{ paddingRight: '8px' }}>{src}</span>
+                          {isPremium && <Lock size={14} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />}
+                        </div>
+                      )
+                    })}
                   </div>
                 )}
               </div>
@@ -301,15 +318,15 @@ const ESGCalculator = () => {
             </div>
 
             <div>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="btn btn-primary"
-                style={{ 
-                  padding: '0.875rem', 
-                  display: 'flex', 
-                  gap: '8px', 
-                  justifyContent: 'center', 
-                  height: '52px', 
+                style={{
+                  padding: '0.875rem',
+                  display: 'flex',
+                  gap: '8px',
+                  justifyContent: 'center',
+                  height: '52px',
                   width: '100%'
                 }}
               >
@@ -331,7 +348,7 @@ const ESGCalculator = () => {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2.5rem', marginBottom: '3rem' }}>
 
           <div style={{ background: 'white', padding: '2rem', borderRadius: '24px', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border-light)' }}>
-            <h3 style={{ fontSize: '1.25rem', marginBottom: '2rem', color: 'var(--text-main)', textAlign: 'center' }}>Emissions by Scope</h3>
+            <h3 style={{ fontSize: '1.25rem', marginBottom: '2rem', color: 'var(--text-main)', textAlign: 'center' }}>Emissions by Scope (kg CO2e)</h3>
             {totalEmissions > 0 ? (
               <div style={{ width: '100%', height: 350 }}>
                 <ResponsiveContainer>
@@ -340,7 +357,6 @@ const ESGCalculator = () => {
                     <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 13, fill: 'var(--text-muted)' }} dy={10} />
                     <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 13, fill: 'var(--text-muted)' }} />
                     <Tooltip cursor={{ fill: 'var(--bg-secondary)' }} contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: 'var(--shadow-md)' }} />
-                    <Legend verticalAlign="bottom" height={36} iconType="circle" />
                     <Bar dataKey="value" name="kg CO2e" radius={[6, 6, 0, 0]} maxBarSize={60}>
                       {barData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={entry.fill} />
@@ -392,7 +408,7 @@ const ESGCalculator = () => {
         {/* Full-width Logged Entries Table */}
         {entries.length > 0 && (
           <div style={{ background: 'white', padding: '2rem', borderRadius: '24px', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border-light)' }}>
-            <h3 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', color: 'var(--text-main)' }}>Logged Activity Log</h3>
+            <h3 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', color: 'var(--text-main)' }}>Activity Log</h3>
             <div style={{ overflowX: 'auto' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px' }}>
                 <thead>
