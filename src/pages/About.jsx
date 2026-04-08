@@ -150,7 +150,7 @@ const About = () => {
 
           <div className="single-founder-container">
             <img
-              src="/mantavya.jpg"
+              src="/mantavya2.jpeg"
               alt="Mantavya Upadhyay"
               className="single-founder-photo"
             />
